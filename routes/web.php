@@ -1,0 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FailController;
+use App\Http\Controllers\User\ProfileController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/fail', FailController::class);
+Route::get('user/profile', [ProfileController::class, 'index'])->name('user.profile.index');
+Route::post('user/profile', [ProfileController::class, 'save'])->name('user.profile.save');
