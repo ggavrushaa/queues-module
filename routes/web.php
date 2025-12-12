@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FailController;
+use App\Http\Controllers\FastController;
 use App\Http\Controllers\UniqueController;
 use App\Http\Controllers\User\ProfileController;
 
@@ -11,6 +12,7 @@ Route::get('/', function () {
 
 Route::get('/fail', FailController::class);
 Route::get('/unique', UniqueController::class);
+Route::get('/fast', FastController::class);
 
 Route::get('user/profile', [ProfileController::class, 'index'])->name('user.profile.index');
 Route::post('user/profile', [ProfileController::class, 'save'])->name('user.profile.save');
