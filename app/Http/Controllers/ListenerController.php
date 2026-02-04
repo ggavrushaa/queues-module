@@ -15,7 +15,7 @@ class ListenerController extends Controller
         $order = $user->orders()->create();
 
         $order->update(['status' => OrderStatusEnum::COMPLETED]);
-
+        
         event(new OrderCompletedEvent($order));
 
         return $order->toArray();
