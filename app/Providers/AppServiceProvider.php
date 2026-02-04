@@ -26,11 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Event::listen(
             \App\Events\OrderCompletedEvent::class,
-            \App\Listeners\QueuedTestListener::class
-        );
-
-        Event::listen(
-            \App\Events\OrderCompletedEvent::class,
             \App\Listeners\CreatePromoCodeListener::class
         );
     }

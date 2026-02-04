@@ -4,10 +4,10 @@ namespace App\Listeners;
 
 use App\Models\PromoCode;
 use App\Events\OrderCompletedEvent;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
-use function Laravel\Prompts\info;
+use App\Notifications\PromoCodeNotification;
 
 class CreatePromoCodeListener implements ShouldQueue
 {
@@ -18,6 +18,6 @@ class CreatePromoCodeListener implements ShouldQueue
             'discount_amount' => 0
         ]);
 
-        info('Promo code created: ', $promoCode->toArray());
+        $event->order->user->notify(new PromoCodeNotification($promoCode));
     }
 }
