@@ -27,7 +27,7 @@ class UpdateLeadJob implements ShouldQueue
     public function handle(): void
     {
         $response = Http::get(
-            url: 'https://example.com/fail',
+            url: 'https://example.com',
             query: $this->user->only('name', 'email')
         );
 

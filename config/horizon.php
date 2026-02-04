@@ -249,6 +249,19 @@ return [
             'timeout' => 60,
             'nice' => 0,
         ],
+        'bitrix24' => [
+            'connection' => 'redis',
+            'queue' => ['bitrix24'],
+            'balance' => 'auto',
+            'autoScalingStrategy' => 'size',
+            'maxProcesses' => 1,
+            'maxTime' => 0,
+            'maxJobs' => 0,
+            'memory' => 128,
+            'tries' => 1,
+            'timeout' => 60,
+            'nice' => 0,
+        ]
     ],
 
     'environments' => [
