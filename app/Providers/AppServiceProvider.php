@@ -28,6 +28,11 @@ class AppServiceProvider extends ServiceProvider
             \App\Events\OrderCompletedEvent::class,
             \App\Listeners\QueuedTestListener::class
         );
+
+        Event::listen(
+            \App\Events\OrderCompletedEvent::class,
+            \App\Listeners\CreatePromoCodeListener::class
+        );
     }
 
     protected function rateLimit(): void
